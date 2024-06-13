@@ -1,7 +1,8 @@
-import React, { useMemo } from "react"
+import { useMemo } from "react"
+import { characterType } from "../types/character"
 
 interface SearchResultProps {
-  data: any
+  data: characterType
 }
 
 export default function SearchResult({ data }: SearchResultProps) {
@@ -16,7 +17,10 @@ export default function SearchResult({ data }: SearchResultProps) {
     return url[url.length - 2]
   }, [data.url])
   return (
-    <div className="flex flex-col w-full max-w-sm gap-6 px-10 py-5 mx-auto mt-24 rounded-lg shadow-lg sm:gap-12 sm:flex-row sm:max-w-lg md:max-w-2xl bg-slate-50 lg:max-w-4xl">
+    <div
+      className="flex flex-col w-full max-w-sm gap-6 px-10 py-5 mx-auto mt-24 rounded-lg shadow-lg sm:gap-12 sm:flex-row sm:max-w-lg md:max-w-2xl bg-slate-50 lg:max-w-4xl"
+      id="character"
+    >
       <img
         className="h-[7rem] w-[7rem] sm:w-[10rem] sm:h-[10rem] rounded-md mx-auto sm:mx-0"
         src={`https://starwars-visualguide.com/assets/img/characters/${characterId}.jpg`}

@@ -1,20 +1,14 @@
 import React, { useEffect } from "react"
-import { characterType } from "../types/character"
 
 interface SearchbarProps {
-  setData: React.Dispatch<React.SetStateAction<characterType[]>>
-
-  setFilters: React.Dispatch<React.SetStateAction<string[]>>
+  handleSearch: (e: string, page: number) => void
 }
 
-export default function Searchbar({ setData, setFilters }: SearchbarProps) {
+export default function Searchbar({ handleSearch }: SearchbarProps) {
   const inputRef = React.useRef<HTMLInputElement>(null)
   const keyDownHandler = (e: KeyboardEvent) => {
     if ((e.ctrlKey || e.metaKey) && e.key === "k") {
       inputRef.current?.focus()
-    }
-    if (e.key === "Enter") {
-      console.log("Enter key pressed")
     }
   }
   useEffect(() => {
@@ -24,6 +18,7 @@ export default function Searchbar({ setData, setFilters }: SearchbarProps) {
       document.removeEventListener("keydown", keyDownHandler)
     }
   }, [])
+
   return (
     <div className="flex items-center w-full max-w-2xl bg-gray-200 rounded-full border-2 has-[:focus]:ring-blue-500 has-[:focus]:ring-2 h-[3.5rem] py-2 px-3 sm:px-5 ease-linear duration-100">
       <div className="relative hidden md:block">
@@ -31,6 +26,7 @@ export default function Searchbar({ setData, setFilters }: SearchbarProps) {
       </div>
       <input
         ref={inputRef}
+        onChange={(e) => handleSearch(e.target.value, 1)}
         placeholder="search for character"
         className="ml-5 bg-transparent outline-none "
       />
@@ -67,28 +63,6 @@ export default function Searchbar({ setData, setFilters }: SearchbarProps) {
           </g>
         </svg>
         <p className="hidden text-sm md:block">Filters</p>
-      </div>
-      <div className="relative h-full ml-1 duration-100 ease-linear bg-black rounded-lg hover:scale-105 hover:cursor-pointer">
-        <svg
-          className="w-8 h-8 sm:w-10 sm:h-10 text-white sm:mt-[-0.2rem]"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-          />
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M17.5 19l-5-5m5 5l-5-5"
-          />
-        </svg>
       </div>
     </div>
   )
