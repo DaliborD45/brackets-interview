@@ -1,30 +1,28 @@
-# React + TypeScript + Vite
+#Submition for Brackets interview 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Hello, this is my little project. 
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Features of my project:
+1. Fuzzy search
+2. Pagination
+3. Responsive design
+4. Here are shortcuts for the project:
+  cmd/ctrl + k - focus on search input
 
-## Expanding the ESLint configuration
+What is missing:
+1. Altough i have button for filters, they are not implemented
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+Few thing i would like to improve:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+1. add better loading animations
+2. add better icons
+3. add error handling (maybe some error message in modal)
+4. better shortcuts
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Notes about project:
+
+1. There is a function which calculates id for every character. I know it is not ideal but api for some reason does not return id as single parameter.
+
+
